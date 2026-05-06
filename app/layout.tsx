@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "BulletproofK9s — Toronto & GTA's #1 Dog Trainers",
   description:
     "Premium dog training in Toronto & the GTA. From toy breeds to working dogs — we fix what others can't. Private lessons, board & train, personal protection, and more.",
+  icons: {
+    icon: "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png",
+  },
 };
 
 export default function RootLayout({

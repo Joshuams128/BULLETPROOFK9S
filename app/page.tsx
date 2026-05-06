@@ -339,7 +339,7 @@ function Hero() {
         />
       </video>
 
-      <div className="absolute inset-0 bg-black/65" />
+      <div className="absolute inset-0 bg-black/30" />
       <div
         className="absolute inset-0"
         style={{
@@ -355,7 +355,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center pt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -375,7 +375,7 @@ function Hero() {
             For Dog Training
           </h1>
 
-          <div className="w-16 h-[2px] bg-[var(--red)] mx-auto my-6" />
+          <div className="w-16 h-[2px] bg-white/20 mx-auto my-10" />
 
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             From toy breeds to working dogs — we fix what others can't.

@@ -1,33 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState, type ReactNode } from "react";
-
-/* ----------------------------- FadeUp ----------------------------- */
-
-function FadeUp({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-}) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/* ------------------------------ Data ------------------------------ */
+import { motion } from "framer-motion";
+import FadeUp from "@/components/FadeUp";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import FinalCTA from "@/components/FinalCTA";
+import { PHONE_HREF } from "@/lib/constants";
 
 const SERVICES = [
   {
@@ -72,15 +51,6 @@ const SERVICES = [
     img: "https://bulletproofk9s.com/wp-content/uploads/2024/10/iStock-1306167086-2000x1333-1-1030x686.jpg",
     tag: "Care",
   },
-];
-
-const SERVICE_LINKS = [
-  { label: "Private Lessons", href: "/private-dog-training-lessons" },
-  { label: "Board & Train", href: "/board-and-train" },
-  { label: "Group Training", href: "/group-training" },
-  { label: "Personal Protection", href: "/personalprotectionk9s" },
-  { label: "Law Enforcement / Military", href: "/police-military" },
-  { label: "Boarding", href: "/boarding" },
 ];
 
 const APPROACH = [
@@ -139,188 +109,6 @@ const TESTIMONIALS = [
     name: "Amanda L.",
   },
 ];
-
-const PHONE = "(437) 555-0182";
-const PHONE_HREF = "tel:+14375550182";
-const LOGO =
-  "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png";
-
-/* ----------------------------- Navbar ----------------------------- */
-
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/90 backdrop-blur-md border-b border-[var(--border)]"
-          : "bg-transparent backdrop-blur-sm"
-      }`}
-    >
-      <div className="mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between">
-        <a href="/" className="flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={LOGO} alt="BulletproofK9s" style={{ height: 52 }} />
-        </a>
-
-        <nav className="hidden lg:flex items-center gap-9 text-sm">
-          <a href="/" className="hover:text-[var(--red)] transition-colors">
-            Home
-          </a>
-          <a href="/about" className="hover:text-[var(--red)] transition-colors">
-            About
-          </a>
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button className="hover:text-[var(--red)] transition-colors flex items-center gap-1">
-              Services
-              <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                <path
-                  d="M2 4l4 4 4-4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-              </svg>
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.18 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64"
-                >
-                  <div className="bg-black/85 backdrop-blur-md border border-[var(--border)] py-2">
-                    {SERVICE_LINKS.map((s) => (
-                      <a
-                        key={s.href}
-                        href={s.href}
-                        className="block px-5 py-2.5 text-sm text-gray-300 hover:bg-[var(--red)]/10 hover:text-white transition-colors"
-                      >
-                        {s.label}
-                      </a>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          <a
-            href="/contact"
-            className="hover:text-[var(--red)] transition-colors"
-          >
-            Contact
-          </a>
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-5">
-          <a
-            href={PHONE_HREF}
-            className="text-xs text-gray-400 hover:text-white transition-colors"
-          >
-            {PHONE}
-          </a>
-          <a
-            href={PHONE_HREF}
-            className="bg-[var(--red)] hover:bg-[var(--red-dim)] text-white text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full transition-all glow-red"
-          >
-            Book Free Call
-          </a>
-        </div>
-
-        <button
-          className="lg:hidden text-white"
-          aria-label="menu"
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            {mobileOpen ? (
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            ) : (
-              <>
-                <path d="M3 7h18" stroke="currentColor" strokeWidth="2" />
-                <path d="M3 12h18" stroke="currentColor" strokeWidth="2" />
-                <path d="M3 17h18" stroke="currentColor" strokeWidth="2" />
-              </>
-            )}
-          </svg>
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-black/95 border-t border-[var(--border)]"
-          >
-            <div className="px-5 py-6 flex flex-col gap-1">
-              <a href="/" className="py-3 text-sm uppercase tracking-widest">
-                Home
-              </a>
-              <a
-                href="/about"
-                className="py-3 text-sm uppercase tracking-widest"
-              >
-                About
-              </a>
-              <div className="py-2">
-                <div className="text-xs text-[var(--red)] uppercase tracking-widest mb-2">
-                  Services
-                </div>
-                <div className="flex flex-col">
-                  {SERVICE_LINKS.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      className="py-2 text-sm text-gray-300"
-                    >
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <a
-                href="/contact"
-                className="py-3 text-sm uppercase tracking-widest"
-              >
-                Contact
-              </a>
-              <a
-                href={PHONE_HREF}
-                className="mt-4 btn-red justify-center w-full"
-              >
-                Book Free Call
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
-}
-
-/* ------------------------------ Hero ------------------------------ */
 
 function Hero() {
   return (
@@ -427,8 +215,6 @@ function Hero() {
   );
 }
 
-/* ------------------------- Social Proof Bar ----------------------- */
-
 function SocialProof() {
   const stats = [
     { num: "25M+", label: "YouTube Views" },
@@ -467,8 +253,6 @@ function SocialProof() {
     </section>
   );
 }
-
-/* ---------------------------- Services ---------------------------- */
 
 function Services() {
   return (
@@ -525,8 +309,6 @@ function Services() {
   );
 }
 
-/* --------------------------- Approach ----------------------------- */
-
 function Approach() {
   return (
     <section className="bg-black py-24 md:py-28">
@@ -577,8 +359,6 @@ function Approach() {
     </section>
   );
 }
-
-/* --------------------------- Blueprint ---------------------------- */
 
 function Blueprint() {
   const positions = [
@@ -656,8 +436,6 @@ function Blueprint() {
   );
 }
 
-/* ------------------------- Testimonials -------------------------- */
-
 function Testimonials() {
   return (
     <section className="bg-black py-24 md:py-28">
@@ -697,168 +475,6 @@ function Testimonials() {
   );
 }
 
-/* ----------------------------- CTA ------------------------------- */
-
-function CTA() {
-  return (
-    <section className="bg-[var(--red)] py-20 md:py-28 relative overflow-hidden grain">
-      <div className="relative z-10 mx-auto max-w-4xl px-5 md:px-8 text-center">
-        <FadeUp>
-          <h2 className="font-heading text-5xl md:text-7xl uppercase text-white leading-[0.95]">
-            Ready To Build A
-            <br />
-            Bulletproof Dog?
-          </h2>
-          <p className="mt-5 text-white/85 text-lg max-w-xl mx-auto">
-            Book a free 15-minute consultation. We'll talk through your dog,
-            your goals, and the right program to get there.
-          </p>
-          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={PHONE_HREF}
-              className="bg-white text-[var(--red)] font-bold uppercase tracking-widest text-sm px-7 py-3.5 hover:bg-black hover:text-white transition-colors"
-            >
-              Call Now
-            </a>
-            <a
-              href="/contact"
-              className="border border-white text-white font-bold uppercase tracking-widest text-sm px-7 py-3.5 hover:bg-white hover:text-[var(--red)] transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
-        </FadeUp>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------- Footer ----------------------------- */
-
-function Footer() {
-  return (
-    <footer className="bg-black border-t border-[var(--border)] py-16">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-[var(--border)]">
-          <a href="/" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={LOGO} alt="BulletproofK9s" style={{ height: 56 }} />
-          </a>
-          <div className="flex items-center gap-3">
-            {[
-              {
-                label: "Facebook",
-                href: "https://facebook.com/bulletproofk9s",
-                d: "M13 22v-8h3l1-4h-4V7c0-1.1.9-2 2-2h2V1h-3a5 5 0 0 0-5 5v4H6v4h3v8h4z",
-              },
-              {
-                label: "Instagram",
-                href: "https://instagram.com/bulletproofk9s",
-                d: "M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2z",
-              },
-              {
-                label: "YouTube",
-                href: "https://youtube.com/bulletproofk9s",
-                d: "M22 8.5a3 3 0 0 0-2.1-2.1C18.1 6 12 6 12 6s-6.1 0-7.9.4A3 3 0 0 0 2 8.5C1.6 10.3 1.6 12 1.6 12s0 1.7.4 3.5A3 3 0 0 0 4.1 17.6C5.9 18 12 18 12 18s6.1 0 7.9-.4a3 3 0 0 0 2.1-2.1c.4-1.8.4-3.5.4-3.5s0-1.7-.4-3.5zM10 15V9l5 3-5 3z",
-              },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="w-10 h-10 border border-[var(--border)] flex items-center justify-center text-gray-300 hover:text-white hover:bg-[var(--red)] hover:border-[var(--red)] transition-colors"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d={s.d} />
-                </svg>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-12">
-          <div>
-            <h4 className="font-heading text-xl uppercase mb-3">About</h4>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              BulletproofK9s is Toronto &amp; the GTA's premier dog training
-              facility — turning out calm, confident, bulletproof dogs since
-              day one.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-heading text-xl uppercase mb-3">Pages</h4>
-            <ul className="text-sm text-gray-400 flex flex-col gap-2">
-              <li><a href="/" className="hover:text-white">Home</a></li>
-              <li><a href="/about" className="hover:text-white">About</a></li>
-              <li><a href="/board-and-train" className="hover:text-white">Board &amp; Train</a></li>
-              <li><a href="/personalprotectionk9s" className="hover:text-white">Personal Protection</a></li>
-              <li><a href="/contact" className="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-heading text-xl uppercase mb-3">Contact</h4>
-            <ul className="text-sm text-gray-400 flex flex-col gap-2">
-              <li>
-                <a href={PHONE_HREF} className="hover:text-white">
-                  {PHONE}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@bulletproofk9s.com"
-                  className="hover:text-white"
-                >
-                  info@bulletproofk9s.com
-                </a>
-              </li>
-              <li>Toronto &amp; GTA, Ontario</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <div>
-            © {new Date().getFullYear()} BulletproofK9s. All rights reserved.
-          </div>
-          <div>
-            Site by{" "}
-            <a
-              href="https://acersites.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[var(--red)]"
-            >
-              AcerSites
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-/* ----------------------- Sticky Mobile CTA ----------------------- */
-
-function StickyMobileCTA() {
-  return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black border-t border-[var(--border)] px-4 py-3">
-      <div className="text-center text-[10px] text-gray-400 uppercase tracking-widest mb-2">
-        Free Consultation · {PHONE}
-      </div>
-      <a
-        href={PHONE_HREF}
-        className="block w-full bg-[var(--red)] text-white text-center font-bold uppercase tracking-widest text-sm py-3"
-      >
-        Call Now
-      </a>
-    </div>
-  );
-}
-
-/* ------------------------------ Page ----------------------------- */
-
 export default function Page() {
   return (
     <main className="bg-black overflow-hidden pb-[88px] md:pb-0">
@@ -869,7 +485,7 @@ export default function Page() {
       <Approach />
       <Blueprint />
       <Testimonials />
-      <CTA />
+      <FinalCTA />
       <Footer />
       <StickyMobileCTA />
     </main>

@@ -111,6 +111,9 @@ const TESTIMONIALS = [
 ];
 
 function Hero() {
+  const heroVideo = "/imgs/bgvideo1.mp4";
+  // Backups: "/imgs/bgvideo.mov" or "https://bulletproofk9s.com/wp-content/uploads/2025/06/Sequence-0130mb.mp4"
+
   return (
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
       <video
@@ -122,12 +125,12 @@ function Hero() {
         poster=""
       >
         <source
-          src="https://bulletproofk9s.com/wp-content/uploads/2025/06/Sequence-0130mb.mp4"
+          src={heroVideo}
           type="video/mp4"
         />
       </video>
 
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/60" />
       <div
         className="absolute inset-0"
         style={{
@@ -150,13 +153,13 @@ function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          <span className="inline-block border border-[var(--red)] text-white uppercase text-[10px] tracking-[0.3em] px-3 py-1.5 rounded-full mb-6">
+          <span className="inline-block border uppercase text-[10px] tracking-[0.3em] px-3 py-1.5 rounded-full mb-6" style={{ borderColor: "#CCFF00", color: "#CCFF00" }}>
             Toronto &amp; GTA's #1 Dog Trainers
           </span>
 
           <h1
-            className="font-heading uppercase text-white leading-[0.92] tracking-tight"
-            style={{ fontSize: "clamp(36px, 6.5vw, 72px)" }}
+            className="font-heading uppercase leading-[0.92] tracking-tight"
+            style={{ fontSize: "clamp(36px, 6.5vw, 72px)", color: "#CCFF00" }}
           >
             Your Last Stop
             <br />
@@ -165,7 +168,7 @@ function Hero() {
 
           <div className="w-16 h-[2px] bg-white/20 mx-auto my-10" />
 
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto" style={{ color: "#CCFF00" }}>
             From toy breeds to working dogs — we fix what others can't.
           </p>
 
@@ -179,7 +182,8 @@ function Hero() {
             ].map((p) => (
               <span
                 key={p}
-                className="bg-white/5 border border-white/10 px-3 py-1 text-xs text-gray-300"
+                className="border px-3 py-1 text-xs"
+                style={{ borderColor: "rgba(204, 255, 0, 0.3)", color: "#CCFF00", backgroundColor: "rgba(204, 255, 0, 0.05)" }}
               >
                 ✓ {p}
               </span>
@@ -195,7 +199,7 @@ function Hero() {
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-gray-400 tracking-wide">
+          <p className="mt-6 text-xs tracking-wide" style={{ color: "#CCFF00" }}>
             📞 Free 15-min consultation &nbsp;·&nbsp; 🔥 30% OFF all packages
           </p>
         </motion.div>

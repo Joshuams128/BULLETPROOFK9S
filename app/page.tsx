@@ -368,7 +368,7 @@ function Hero() {
 
           <h1
             className="font-heading uppercase text-white leading-[0.92] tracking-tight"
-            style={{ fontSize: "clamp(60px, 11vw, 120px)" }}
+            style={{ fontSize: "clamp(36px, 6.5vw, 72px)" }}
           >
             Your Last Stop
             <br />

@@ -9,3 +9,4 @@ build/
 .turbo
 *.mp4
 *.mp4
+.claude/settings.local.json

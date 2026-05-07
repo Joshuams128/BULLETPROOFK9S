@@ -119,19 +119,14 @@ function Hero() {
       {/* Desktop Hero with video background */}
       <section className="hidden md:block relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
         <video
+          src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-          poster=""
-        >
-          <source
-            src={heroVideo}
-            type="video/mp4"
-          />
-        </video>
+        />
 
         <div className="absolute inset-0 bg-black/0" />
         <div
@@ -226,18 +221,14 @@ function Hero() {
         </div>
         <div className="relative aspect-video bg-black overflow-hidden mx-auto w-11/12 rounded-lg">
           <video
+            src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            poster=""
-          >
-            <source
-              src={heroVideo}
-              type="video/mp4"
-            />
-          </video>
+          />
         </div>
 
         <div className="relative z-10 px-5 pt-6 pb-12 border-b border-[var(--border)]">
@@ -304,18 +295,12 @@ function Hero() {
 
             <div className="mt-8 relative aspect-video bg-black overflow-hidden rounded-lg w-full">
               <video
+                src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/20240820-111322-1puppy-kids.mp4"
                 autoPlay
                 muted
                 loop
-                playsInline
                 className="absolute inset-0 w-full h-full object-cover"
-                poster=""
-              >
-                <source
-                  src="/imgs/20240820-111322-1puppy-kids.mp4"
-                  type="video/mp4"
-                />
-              </video>
+              />
             </div>
           </div>
         </div>

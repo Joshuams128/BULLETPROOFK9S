@@ -8,6 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -142,20 +143,34 @@ export default function Navbar() {
                 About
               </a>
               <div className="py-2">
-                <div className="text-xs text-[var(--red)] uppercase tracking-widest mb-2">
+                <button
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                  className="w-full flex items-center justify-between text-xs text-[var(--red)] uppercase tracking-widest py-3 hover:bg-white/5 rounded transition-colors"
+                >
                   Services
-                </div>
-                <div className="flex flex-col">
-                  {SERVICE_LINKS.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      className="py-2 text-sm text-gray-300"
+                  <span>{mobileServicesOpen ? "−" : "+"}</span>
+                </button>
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden flex flex-col"
                     >
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
+                      {SERVICE_LINKS.map((s) => (
+                        <a
+                          key={s.href}
+                          href={s.href}
+                          className="py-2 pl-4 text-sm text-gray-300 hover:text-white transition-colors"
+                        >
+                          {s.label}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
               <a
                 href="/contact"

@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import FadeUp from "@/components/FadeUp";
 import Navbar from "@/components/Navbar";
@@ -111,153 +112,252 @@ const TESTIMONIALS = [
 ];
 
 function Hero() {
-  const heroVideo = "https://bulletproofk9s.com/wp-content/uploads/2025/06/Sequence-0130mb.mp4";
-  // Backups: "/imgs/bgvideo1.mp4" or "/imgs/bgvideo.mov"
+  const heroVideo = "/imgs/bgvideo.mp4";
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        poster=""
-      >
-        <source
-          src={heroVideo}
-          type="video/mp4"
-        />
-      </video>
-
-      <div className="absolute inset-0 bg-black/60" />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 0% 100%, rgba(192,0,10,0.25), transparent)",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.85) 100%)",
-        }}
-      />
-
-      <div className="relative z-10 h-full flex flex-col items-center justify-start px-5 text-center pt-40 md:pt-48">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-4xl"
+    <>
+      {/* Desktop Hero with video background */}
+      <section className="hidden md:block relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+          poster=""
         >
-          <span className="inline-block border border-[var(--red)] text-white uppercase text-[10px] tracking-[0.3em] px-3 py-1.5 rounded-full mb-6">
-            Toronto &amp; GTA's #1 Dog Trainers
-          </span>
-
-          <h1
-            className="font-heading uppercase text-white leading-[0.92] tracking-tight"
-            style={{ fontSize: "clamp(36px, 6.5vw, 72px)" }}
-          >
-            Your Last Stop
-            <br />
-            For Dog Training
-          </h1>
-
-          <div className="w-16 h-[2px] bg-white/20 mx-auto my-10" />
-
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
-            {[
-              "Puppy Training",
-              "Behaviour Issues",
-              "Personal Protection",
-              "Board & Train",
-              "Law Enforcement",
-            ].map((p) => (
-              <span
-                key={p}
-                className="bg-white/5 border border-white/10 px-3 py-1 text-xs text-gray-300"
-              >
-                ✓ {p}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 items-center justify-center">
-            <a href={PHONE_HREF} className="btn-red glow-red">
-              Call Now
-            </a>
-            <a href="#work" className="btn-ghost">
-              ▶ Watch Our Work
-            </a>
-          </div>
-        </motion.div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 scroll-bounce text-white/60">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M6 9l6 6 6-6"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="square"
+          <source
+            src={heroVideo}
+            type="video/mp4"
           />
-        </svg>
-      </div>
-    </section>
+        </video>
+
+        <div className="absolute inset-0 bg-black/0" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 40% at 0% 100%, rgba(192,0,10,0.25), transparent)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.85) 100%)",
+          }}
+        />
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-start px-5 text-center pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-4xl"
+          >
+            <span className="inline-block border border-[var(--red)] text-white uppercase text-[10px] tracking-[0.3em] px-3 py-1.5 rounded-full mb-6">
+              Toronto &amp; GTA's #1 Dog Trainers
+            </span>
+
+            <h1
+              className="font-heading uppercase text-white leading-[0.92] tracking-tight"
+              style={{ fontSize: "clamp(36px, 6.5vw, 72px)" }}
+            >
+              Your Last Stop
+              <br />
+              For Dog Training
+            </h1>
+
+            <div className="w-16 h-[2px] bg-transparent mx-auto my-10" />
+
+            <div className="mt-16 flex flex-col sm:flex-row gap-3 items-center justify-center">
+              <a href={PHONE_HREF} className="btn-red glow-red">
+                Call Now
+              </a>
+              <a href="#work" className="btn-ghost">
+                ▶ Watch Our Work
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="mx-auto max-w-7xl px-5 md:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="grid grid-cols-3 flex-1 w-full">
+              {[
+                { num: "25M+", label: "YouTube Views" },
+                { num: "1,000+", label: "Dogs Trained" },
+                { num: "15+", label: "Years Experience" },
+              ].map((s, i) => (
+                <div
+                  key={s.label}
+                  className={`text-center px-4 ${
+                    i < 2 ? "border-r border-white/10" : ""
+                  }`}
+                >
+                  <div className="font-heading text-4xl md:text-5xl text-[var(--red)] leading-none">
+                    {s.num}
+                  </div>
+                  <div className="mt-2 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="hidden md:flex items-center pl-8 border-l border-white/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://bulletproofk9s.com/wp-content/uploads/2024/08/a3d6d7-a64-f3af-8ce3-43baae87caa0_YouTube-logo-1-300x169.webp"
+                alt="YouTube"
+                className="h-10 w-auto opacity-60"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile Hero with video on top */}
+      <section className="md:hidden bg-black pt-20">
+        <div className="px-5 text-center mb-6 flex justify-center pt-4">
+          <h2 className="text-xl text-white leading-tight max-w-xs" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "900", textTransform: "uppercase" }}>
+            "Your Last <span style={{ color: "var(--red)" }}>Stop</span> for Your Dog Training Needs"
+          </h2>
+        </div>
+        <div className="relative aspect-video bg-black overflow-hidden mx-auto w-11/12 rounded-lg">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster=""
+          >
+            <source
+              src={heroVideo}
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div className="relative z-10 px-5 pt-6 pb-12 border-b border-[var(--border)]">
+          <div className="max-w-2xl mx-auto">
+            <p className="text-lg mb-6" style={{ color: "#CEF50C", fontFamily: "'Inter', sans-serif", fontWeight: "900", letterSpacing: "0.02em", textTransform: "none" }}>
+              From Toy Breeds to Working Dogs — We Fix What Others Can't.
+            </p>
+
+            <p className="text-sm md:text-base text-gray-300 mb-2 leading-relaxed">
+              Whether it's a tiny terrier or a powerful working dog, we deliver real-world training that works. From puppy problems to behavior issues, protection, or sport dog precision—we train dogs you can trust anywhere, anytime.
+            </p>
+
+            <p className="text-sm md:text-base text-gray-300 mb-4 leading-relaxed">
+              No gimmicks. No wasted time. Just proven methods that build calm, confident, bulletproof dogs.
+            </p>
+
+            <div className="space-y-2 mb-8">
+              {[
+                "Puppy Training",
+                "Behavior Issues (aggression, reactivity, anxiety)",
+                "Personal Protection",
+                "Dog Sport Problem Solving",
+                "Toy Breeds to High-Drive Working Dogs",
+              ].map((service) => (
+                <div key={service} className="flex items-start gap-3 text-sm text-gray-300">
+                  <span style={{ color: "#CEF50C" }}>✅</span>
+                  <span>{service}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-4 mb-6">
+              <p className="text-sm font-bold uppercase text-center" style={{ color: "#CEF50C" }}>
+                📞 Book your FREE 15-minute phone consultation
+              </p>
+              <p className="text-sm font-bold uppercase text-center" style={{ color: "#CEF50C" }}>
+                🔥 30% OFF all training packages — limited time only!
+              </p>
+              <a href={PHONE_HREF} className="block px-6 py-3 text-sm font-bold uppercase text-center transition-all rounded-lg" style={{ backgroundColor: "#E8BE1B", color: "#000000" }}>
+                📞 Call now
+              </a>
+            </div>
+
+            <p className="text-sm text-gray-300 text-center italic">
+              Let's build the dog you've always wanted—starting today.
+            </p>
+
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              {[
+                { num: "25M+", label: "YouTube Views" },
+                { num: "1,000+", label: "Dogs Trained" },
+                { num: "15+", label: "Years Experience" },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="font-heading text-3xl text-[var(--red)] leading-none">
+                    {s.num}
+                  </div>
+                  <div className="mt-2 text-[10px] text-gray-400 uppercase tracking-[0.2em]">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 relative aspect-video bg-black overflow-hidden rounded-lg w-full">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                poster=""
+              >
+                <source
+                  src="/imgs/20240820-111322-1puppy-kids.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
 function ConsultationStrip() {
+  const services = [
+    "Puppy Training",
+    "Behaviour Issues",
+    "Personal Protection",
+    "Board & Train",
+    "Law Enforcement",
+  ];
+
   return (
     <section className="bg-black border-b border-[var(--border)]">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-12 text-center flex flex-col gap-6">
-        <p className="font-heading text-2xl max-w-2xl mx-auto" style={{ color: "#CCFF00" }}>
-          From toy breeds to working dogs — we fix what others can't.
-        </p>
-        <p className="font-heading text-sm tracking-wide" style={{ color: "#CCFF00" }}>
-          📞 Free 15-min consultation &nbsp;·&nbsp; 🔥 30% OFF all packages
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function SocialProof() {
-  const stats = [
-    { num: "25M+", label: "YouTube Views" },
-    { num: "1,000+", label: "Dogs Trained" },
-    { num: "15+", label: "Years Experience" },
-  ];
-  return (
-    <section className="bg-[var(--surface)] border-y border-[var(--border)]">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="grid grid-cols-3 flex-1 w-full">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`text-center px-4 ${
-                i < stats.length - 1 ? "border-r border-[var(--border)]" : ""
-              }`}
+      <div className="mx-auto max-w-7xl px-5 md:px-8 py-16 md:py-20 text-center flex flex-col gap-8">
+        <div>
+          <p className="font-heading text-3xl md:text-4xl max-w-2xl mx-auto" style={{ color: "#CCFF00" }}>
+            From toy breeds to working dogs — we fix what others can't.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {services.map((service) => (
+            <span
+              key={service}
+              className="bg-white/5 border border-white/10 px-4 py-2 text-sm text-gray-300"
             >
-              <div className="font-heading text-5xl md:text-6xl text-[var(--red)] leading-none">
-                {s.num}
-              </div>
-              <div className="mt-2 text-[11px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">
-                {s.label}
-              </div>
-            </div>
+              <span style={{ color: "#CEF50C" }}>✓</span> {service}
+            </span>
           ))}
         </div>
-        <div className="hidden md:flex items-center pl-8 border-l border-[var(--border)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://bulletproofk9s.com/wp-content/uploads/2024/08/a3d6d7-a64-f3af-8ce3-43baae87caa0_YouTube-logo-1-300x169.webp"
-            alt="YouTube"
-            className="h-12 w-auto opacity-80"
-          />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href={PHONE_HREF} className="px-6 py-3 text-sm font-semibold uppercase transition-all border border-white" style={{ color: "#CEF50C" }}>
+            📞 Free 15-min Consultation
+          </a>
+          <a href={PHONE_HREF} className="px-6 py-3 text-sm font-semibold uppercase transition-all border border-white" style={{ color: "#CEF50C" }}>
+            🔥 Get 30% OFF All Packages
+          </a>
         </div>
       </div>
     </section>
@@ -265,6 +365,8 @@ function SocialProof() {
 }
 
 function Services() {
+  const [expanded, setExpanded] = useState<string | null>(null);
+
   return (
     <section id="services" className="bg-[var(--surface)] py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -279,38 +381,43 @@ function Services() {
           </p>
         </FadeUp>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border)]">
-          {SERVICES.map((s, i) => (
-            <FadeUp key={s.title} delay={i * 0.05}>
-              <a
-                href={s.href}
-                className="group bg-[var(--surface)] block overflow-hidden h-full"
-              >
-                <div className="relative aspect-video overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={s.img}
-                    alt={s.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[var(--red)] opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  <span className="absolute bottom-3 left-3 font-heading uppercase text-xs px-3 py-1 bg-black/70 text-white tracking-widest">
-                    {s.tag}
-                  </span>
-                </div>
-                <div className="px-6 py-7">
-                  <h3 className="font-heading text-2xl uppercase">
+        <div className="mt-14 space-y-4">
+          {SERVICES.map((s) => (
+            <FadeUp key={s.title}>
+              <div className="border border-[var(--border)] bg-[var(--surface)]">
+                <button
+                  onClick={() => setExpanded(expanded === s.title ? null : s.title)}
+                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors"
+                >
+                  <h3 className="font-heading text-lg md:text-2xl uppercase text-left">
                     {s.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-400 line-clamp-2">
-                    {s.desc}
-                  </p>
-                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-[var(--red)] group-hover:gap-3 gap-2 transition-all">
-                    Learn More <span>→</span>
+                  <span className="text-[var(--red)] text-2xl ml-4">
+                    {expanded === s.title ? "−" : "+"}
                   </span>
-                </div>
-              </a>
+                </button>
+                {expanded === s.title && (
+                  <div className="border-t border-[var(--border)] px-6 py-6">
+                    <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={s.img}
+                        alt={s.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-gray-300 mb-4">
+                      {s.desc}
+                    </p>
+                    <a
+                      href={s.href}
+                      className="inline-flex items-center text-sm font-semibold text-[var(--red)] gap-2 hover:gap-3 transition-all"
+                    >
+                      Learn More <span>→</span>
+                    </a>
+                  </div>
+                )}
+              </div>
             </FadeUp>
           ))}
         </div>
@@ -321,7 +428,7 @@ function Services() {
 
 function Approach() {
   return (
-    <section className="bg-black py-24 md:py-28">
+    <section className="bg-black pt-12 md:pt-16 pb-24 md:pb-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <FadeUp>
@@ -382,38 +489,22 @@ function Blueprint() {
   return (
     <section className="bg-[var(--surface)]">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative h-[600px] overflow-hidden bg-black">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 30% 50%, rgba(192,0,10,0.18), transparent 60%)",
-            }}
-          />
-          <div className="relative h-full w-full px-6 py-6">
-            {BLUEPRINT_IMAGES.map((src, i) => (
-              <FadeUp
-                key={src}
-                delay={i * 0.07}
-                className={`absolute ${positions[i]}`}
-              >
-                <div className="border border-[var(--border)] shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full h-auto block"
-                    style={{ display: "block" }}
-                  />
-                </div>
-              </FadeUp>
-            ))}
+        <div className="relative bg-black flex flex-col items-center justify-start pt-8 md:pt-12 pb-8 px-5 md:px-8">
+          <FadeUp>
+            <div className="label-red mb-8">Can't Make It In Person?</div>
+          </FadeUp>
+          <div className="w-5/6 md:w-4/5 rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/imgs/online2.jpeg"
+              alt="Train Online With The Blueprint"
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
 
         <div className="bg-black px-7 md:px-12 py-16 md:py-20 flex flex-col justify-center">
           <FadeUp>
-            <div className="label-red">Can't Make It In Person?</div>
             <h2 className="font-heading mt-2 text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.95]">
               Train Online
               <br />
@@ -460,14 +551,14 @@ function Testimonials() {
           </div>
         </FadeUp>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
+        <div className="mt-14 flex overflow-x-auto gap-6 pb-4 scrollbar-hide">
           {TESTIMONIALS.map((t, i) => (
             <FadeUp key={t.name} delay={i * 0.08}>
-              <div className="bg-[var(--surface)] p-8 flex flex-col gap-4 h-full border border-[var(--border)]">
+              <div className="flex-shrink-0 w-72 h-72 bg-[var(--surface)] p-8 flex flex-col gap-4 border border-[var(--border)] rounded-lg">
                 <div className="text-yellow-400 text-lg tracking-widest">
                   ★★★★★
                 </div>
-                <p className="italic text-gray-300 leading-relaxed">
+                <p className="italic text-gray-300 leading-relaxed text-sm overflow-hidden">
                   "{t.quote}"
                 </p>
                 <div className="mt-auto pt-4">
@@ -490,15 +581,12 @@ export default function Page() {
     <main className="bg-black overflow-hidden pb-[88px] md:pb-0">
       <Navbar />
       <Hero />
-      <ConsultationStrip />
-      <SocialProof />
-      <Services />
-      <Approach />
-      <Blueprint />
       <Testimonials />
+      <Approach />
+      <Services />
+      <Blueprint />
       <FinalCTA />
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

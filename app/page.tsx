@@ -111,8 +111,8 @@ const TESTIMONIALS = [
 ];
 
 function Hero() {
-  const heroVideo = "/imgs/bgvideo1.mp4";
-  // Backups: "/imgs/bgvideo.mov" or "https://bulletproofk9s.com/wp-content/uploads/2025/06/Sequence-0130mb.mp4"
+  const heroVideo = "https://bulletproofk9s.com/wp-content/uploads/2025/06/Sequence-0130mb.mp4";
+  // Backups: "/imgs/bgvideo1.mp4" or "/imgs/bgvideo.mov"
 
   return (
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
@@ -146,7 +146,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center pt-20">
+      <div className="relative z-10 h-full flex flex-col items-center justify-start px-5 text-center pt-40 md:pt-48">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -167,10 +167,6 @@ function Hero() {
           </h1>
 
           <div className="w-16 h-[2px] bg-white/20 mx-auto my-10" />
-
-          <p className="text-2xl max-w-2xl mx-auto" style={{ color: "#CCFF00" }}>
-            From toy breeds to working dogs — we fix what others can't.
-          </p>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
             {[
@@ -197,10 +193,6 @@ function Hero() {
               ▶ Watch Our Work
             </a>
           </div>
-
-          <p className="mt-6 text-sm tracking-wide" style={{ color: "#CCFF00" }}>
-            📞 Free 15-min consultation &nbsp;·&nbsp; 🔥 30% OFF all packages
-          </p>
         </motion.div>
       </div>
 
@@ -213,6 +205,21 @@ function Hero() {
             strokeLinecap="square"
           />
         </svg>
+      </div>
+    </section>
+  );
+}
+
+function ConsultationStrip() {
+  return (
+    <section className="bg-black border-b border-[var(--border)]">
+      <div className="mx-auto max-w-7xl px-5 md:px-8 py-12 text-center flex flex-col gap-6">
+        <p className="font-heading text-2xl max-w-2xl mx-auto" style={{ color: "#CCFF00" }}>
+          From toy breeds to working dogs — we fix what others can't.
+        </p>
+        <p className="font-heading text-sm tracking-wide" style={{ color: "#CCFF00" }}>
+          📞 Free 15-min consultation &nbsp;·&nbsp; 🔥 30% OFF all packages
+        </p>
       </div>
     </section>
   );
@@ -483,6 +490,7 @@ export default function Page() {
     <main className="bg-black overflow-hidden pb-[88px] md:pb-0">
       <Navbar />
       <Hero />
+      <ConsultationStrip />
       <SocialProof />
       <Services />
       <Approach />

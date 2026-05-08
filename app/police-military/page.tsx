@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
@@ -15,7 +14,7 @@ const CAPABILITIES = [
   { n: "04", t: "Apprehension & Patrol", b: "Bite work, suspect apprehension, and controlled engagement on cue." },
   { n: "05", t: "Search & Rescue", b: "Tracking, area search, and disaster work in challenging terrain." },
   { n: "06", t: "Specialized Ops", b: "SWAT support, crowd control, VIP protection, and tactical deployment." },
-  { n: "07", t: "Handler Pairing", b: "K9s paired with handlers and bonded into operational teams that perform under real pressure." },
+  { n: "07", t: "Handler Pairing", b: "K9s paired with handlers and bonded into operational units that perform under real pressure." },
   { n: "08", t: "Health & Care", b: "Conditioning, nutrition, vet protocols, and recovery — keeping working dogs in working shape." },
   { n: "09", t: "Retirement & Aftercare", b: "Pathways for retired K9s — adoption support and structured aftercare programs." },
 ];
@@ -44,9 +43,20 @@ export default function PoliceMilitaryPage() {
 
       {/* Intro */}
       <section className="bg-[var(--surface)] py-24 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 lg:items-stretch">
+          <FadeUp delay={0.1} className="order-first lg:order-last lg:h-full">
+            <div className="relative w-full h-full mx-auto overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/imgs/op.jpeg"
+                alt="Police K9"
+                className="w-full h-auto lg:h-full lg:w-full object-contain"
+              />
+            </div>
+          </FadeUp>
+
           <FadeUp>
-            <div className="label-red">For Working Teams</div>
+            <div className="label-red">For Operational K9s</div>
             <h2 className="font-heading mt-2 text-4xl md:text-5xl uppercase leading-[0.95]">
               When The Stakes Are Real,
               <br />
@@ -65,20 +75,8 @@ export default function PoliceMilitaryPage() {
               yard.
             </p>
             <a href={PHONE_HREF} className="btn-red mt-8 glow-red">
-              Talk To Our Team
+              Talk To Our Trainer
             </a>
-          </FadeUp>
-
-          <FadeUp delay={0.1}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://bulletproofk9s.com/wp-content/uploads/2024/08/f24a5c-b3fc-4084-cf8-1ee30bbf6cd6_IMG_0910_1_-1030x773.jpg"
-                alt="Police K9"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            </div>
           </FadeUp>
         </div>
       </section>
@@ -165,7 +163,7 @@ export default function PoliceMilitaryPage() {
               <p className="text-gray-300 max-w-xl mx-auto leading-relaxed">
                 Every operational deployment is different. Single-purpose
                 detection, dual-purpose patrol, full operational K9 — pricing
-                and timelines depend on the spec. Talk to our team to discuss
+                and timelines depend on the spec. Talk to our trainer to discuss
                 requirements.
               </p>
               <a href={PHONE_HREF} className="btn-red mt-8 glow-red">
@@ -177,13 +175,12 @@ export default function PoliceMilitaryPage() {
       </section>
 
       <FinalCTA
-        title={"Equip Your Team\nWith Working Dogs."}
-        subtitle="Confidential consultations available for law enforcement, military, and private security teams."
+        title={"Equip Your Unit\nWith Working Dogs."}
+        subtitle="Confidential consultations available for law enforcement, military, and private security units."
         primary={{ text: "Submit Inquiry", href: PHONE_HREF }}
       />
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

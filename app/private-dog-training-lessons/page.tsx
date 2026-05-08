@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
@@ -27,7 +26,7 @@ const PROCESS = [
   {
     n: "04",
     title: "Reward + Structure",
-    body: "Balanced training that respects your dog while giving them the structure they need to thrive. Trust comes from clarity, not bribery.",
+    body: "Positive reinforcement training that respects your dog while giving them the structure they need to thrive. Trust comes from clarity, not bribery.",
   },
   {
     n: "05",
@@ -188,17 +187,17 @@ export default function PrivateLessonsPage() {
                   Best Value
                 </span>
                 <div className="text-xs uppercase tracking-[0.3em] text-[var(--red)]">
-                  5-Session Package
+                  4-Session Package
                 </div>
                 <div className="font-heading text-7xl text-white mt-3">
                   $1,000
                 </div>
                 <div className="text-sm text-gray-500 mt-1">
-                  $200/session — save $250
+                  $250/session — save $0
                 </div>
                 <ul className="mt-6 flex flex-col gap-3 text-gray-300 text-sm">
                   <li className="flex items-start gap-3">
-                    <span className="text-[var(--red)]">▶</span> 5 full
+                    <span className="text-[var(--red)]">▶</span> 4 full
                     sessions
                   </li>
                   <li className="flex items-start gap-3">
@@ -215,15 +214,18 @@ export default function PrivateLessonsPage() {
                   </li>
                 </ul>
                 <a href={PHONE_HREF} className="btn-red mt-auto pt-8">
-                  Book 5-Pack →
+                  Book 4-Pack →
                 </a>
               </div>
             </FadeUp>
           </div>
 
           <FadeUp delay={0.15}>
-            <p className="mt-10 text-center text-sm text-gray-500">
-              💡 In-home consultations available — <span className="text-gray-300">$1/km</span> travel
+            <p className="mt-10 text-center text-lg md:text-xl text-gray-400">
+              💡 In-home consultations available — <span className="text-gray-200">$1/km</span> travel
+            </p>
+            <p className="mt-3 text-center text-xl md:text-3xl font-bold" style={{ color: "#CEF50C" }}>
+              🔥 30% OFF 4 session packages for summer
             </p>
           </FadeUp>
         </div>
@@ -235,7 +237,6 @@ export default function PrivateLessonsPage() {
       />
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import FadeUp from "@/components/FadeUp";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FinalCTA from "@/components/FinalCTA";
+import GoogleReviews from "@/components/GoogleReviews";
 import { PHONE_HREF } from "@/lib/constants";
 
 const SERVICES = [
@@ -72,15 +72,15 @@ const APPROACH = [
   },
   {
     n: "04",
-    title: "No Gimmicks, Ever.",
-    body: "Proven methods. Calm, confident, bulletproof dogs.",
+    title: "Reward + Structure",
+    body: "Positive reinforcement training that respects your dog while giving them the structure they need to thrive. Trust comes from clarity, not bribery.",
   },
 ];
 
 const BLUEPRINT_FEATURES = [
   "Step-by-step video lessons from puppy to advanced",
   "Real cases — reactivity, recall, leash work, manners",
-  "Private community + direct coaching from the team",
+  "Private community + direct coaching from our trainer",
   "Train at your pace, on any device, anywhere",
 ];
 
@@ -93,119 +93,101 @@ const BLUEPRINT_IMAGES = [
   "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.41.31 PM.png",
 ];
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "BulletproofK9s completely changed my reactive German Shepherd. Jeremy knows exactly what he's doing.",
-    name: "Sarah M.",
-  },
-  {
-    quote:
-      "We tried multiple trainers. After just a few sessions our dog is calm, focused, and obedient.",
-    name: "Mike T.",
-  },
-  {
-    quote:
-      "The Board & Train was worth every penny. Got our dog back happier and completely transformed.",
-    name: "Amanda L.",
-  },
-];
-
 function Hero() {
   const heroVideo = "/imgs/bgvideo.mp4";
 
   return (
     <>
-      {/* Desktop Hero with video background */}
-      <section className="hidden md:block relative h-screen min-h-[700px] w-full overflow-hidden grain bg-black">
-        <video
-          src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-black/0" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 40% at 0% 100%, rgba(192,0,10,0.25), transparent)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.85) 100%)",
-          }}
-        />
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-start px-5 text-center pt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-4xl"
-          >
-            <span className="inline-block border border-[var(--red)] text-white uppercase text-[10px] tracking-[0.3em] px-3 py-1.5 rounded-full mb-6">
-              Toronto &amp; GTA's #1 Dog Trainers
-            </span>
-
-            <h1
-              className="font-heading uppercase text-white leading-[0.92] tracking-tight"
-              style={{ fontSize: "clamp(36px, 6.5vw, 72px)" }}
-            >
-              Your Last Stop
-              <br />
-              For Dog Training
-            </h1>
-
-            <div className="w-16 h-[2px] bg-transparent mx-auto my-10" />
-
-            <div className="mt-16 flex flex-col sm:flex-row gap-3 items-center justify-center">
-              <a href={PHONE_HREF} className="btn-red glow-red">
-                Call Now
-              </a>
-              <a href="#work" className="btn-ghost">
-                ▶ Watch Our Work
-              </a>
-            </div>
-          </motion.div>
+      {/* Desktop Hero — mirrors mobile layout, scaled up */}
+      <section className="hidden md:block bg-black pt-28">
+        <div className="relative aspect-video bg-black overflow-hidden mx-auto w-10/12 max-w-5xl rounded-2xl">
+          <video
+            src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <div className="px-8 text-center mt-10 mb-2 flex justify-center">
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl text-white leading-tight max-w-4xl" style={{ fontFamily: "'Inter', sans-serif", fontWeight: "900", textTransform: "uppercase" }}>
+            "Your Last <span style={{ color: "var(--red)" }}>Stop</span> for Your Dog Training Needs"
+          </h2>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/80 to-transparent">
-          <div className="mx-auto max-w-7xl px-5 md:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="grid grid-cols-3 flex-1 w-full">
+        <div className="relative z-10 px-8 pt-12 pb-20 border-b border-[var(--border)]">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-2xl lg:text-3xl mb-10 text-center" style={{ color: "#CEF50C", fontFamily: "'Inter', sans-serif", fontWeight: "900", letterSpacing: "0.02em", textTransform: "none" }}>
+              From Toy Breeds to Working Dogs — We Fix What Others Can't.
+            </p>
+
+            <p className="text-lg lg:text-xl text-gray-300 mb-4 leading-relaxed">
+              Whether it's a tiny terrier or a powerful working dog, we deliver real-world training that works. From puppy problems to behavior issues, protection, or sport dog precision—we train dogs you can trust anywhere, anytime.
+            </p>
+
+            <p className="text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed">
+              No gimmicks. No wasted time. Just proven methods that build calm, Confident, Bulletproof dogs.
+            </p>
+
+            <div className="space-y-3 mb-12">
+              {[
+                "Puppy Training",
+                "Behavior Issues (aggression, reactivity, anxiety)",
+                "Personal Protection",
+                "Dog Sport Problem Solving",
+                "Toy Breeds to High-Drive Working Dogs",
+              ].map((service) => (
+                <div key={service} className="flex items-start gap-4 text-lg lg:text-xl text-gray-300">
+                  <span style={{ color: "#CEF50C" }}>✅</span>
+                  <span>{service}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-5 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl lg:text-2xl font-bold uppercase text-center" style={{ color: "#CEF50C" }}>
+                📞 Book your FREE 15-minute phone consultation
+              </p>
+              <p className="text-xl lg:text-2xl font-bold uppercase text-center" style={{ color: "#CEF50C" }}>
+                🔥 30% OFF all training packages — limited time only!
+              </p>
+              <a href={PHONE_HREF} className="block px-8 py-5 text-xl font-bold uppercase text-center transition-all rounded-lg" style={{ backgroundColor: "#E8BE1B", color: "#000000" }}>
+                📞 Call now
+              </a>
+            </div>
+
+            <p className="text-lg lg:text-xl text-white font-bold text-center">
+              Let's build the dog you've always wanted—starting today.
+            </p>
+
+            <div className="mt-14 grid grid-cols-3 gap-8">
               {[
                 { num: "25M+", label: "YouTube Views" },
                 { num: "1,000+", label: "Dogs Trained" },
                 { num: "15+", label: "Years Experience" },
-              ].map((s, i) => (
-                <div
-                  key={s.label}
-                  className={`text-center px-4 ${
-                    i < 2 ? "border-r border-white/10" : ""
-                  }`}
-                >
-                  <div className="font-heading text-4xl md:text-5xl text-[var(--red)] leading-none">
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="font-heading text-5xl lg:text-6xl text-[var(--red)] leading-none">
                     {s.num}
                   </div>
-                  <div className="mt-2 text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">
+                  <div className="mt-3 text-sm lg:text-base text-gray-400 uppercase tracking-[0.2em]">
                     {s.label}
                   </div>
                 </div>
               ))}
             </div>
-            <div className="hidden md:flex items-center pl-8 border-l border-white/10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://bulletproofk9s.com/wp-content/uploads/2024/08/a3d6d7-a64-f3af-8ce3-43baae87caa0_YouTube-logo-1-300x169.webp"
-                alt="YouTube"
-                className="h-10 w-auto opacity-60"
+
+            <div className="mt-14 relative aspect-video bg-black overflow-hidden rounded-2xl w-full">
+              <video
+                src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/20240820-111322-1puppy-kids.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           </div>
@@ -242,7 +224,7 @@ function Hero() {
             </p>
 
             <p className="text-sm md:text-base text-gray-300 mb-4 leading-relaxed">
-              No gimmicks. No wasted time. Just proven methods that build calm, confident, bulletproof dogs.
+              No gimmicks. No wasted time. Just proven methods that build calm, Confident, Bulletproof dogs.
             </p>
 
             <div className="space-y-2 mb-8">
@@ -272,7 +254,7 @@ function Hero() {
               </a>
             </div>
 
-            <p className="text-sm text-gray-300 text-center italic">
+            <p className="text-sm text-white font-bold text-center">
               Let's build the dog you've always wanted—starting today.
             </p>
 
@@ -428,11 +410,11 @@ function Approach() {
             <div className="w-16 h-[2px] bg-[var(--red)] my-6" />
             <p className="text-gray-400 max-w-md">
               We've trained over a thousand dogs and earned millions of views
-              showing our work. No theatrics. No quick fixes. Just calm,
-              confident, bulletproof dogs — and the owners who finally feel in
+              showing our work. No theatrics. No gimmicks. Just calm,
+              Confident, Bulletproof dogs — and the owners who finally feel in
               control.
             </p>
-            <a href={PHONE_HREF} className="btn-red mt-8 glow-red">
+            <a href="/contact" className="btn-red mt-8 glow-red">
               Book Free Consultation
             </a>
           </FadeUp>
@@ -524,51 +506,12 @@ function Blueprint() {
   );
 }
 
-function Testimonials() {
-  return (
-    <section className="bg-black py-24 md:py-28">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <FadeUp>
-          <div className="text-center">
-            <div className="label-red">Testimonials</div>
-            <h2 className="font-heading mt-2 text-5xl md:text-6xl uppercase leading-[0.95]">
-              What Clients Say
-            </h2>
-            <div className="w-16 h-[2px] bg-[var(--red)] mx-auto mt-6" />
-          </div>
-        </FadeUp>
-
-        <div className="mt-14 flex overflow-x-auto gap-6 pb-4 scrollbar-hide">
-          {TESTIMONIALS.map((t, i) => (
-            <FadeUp key={t.name} delay={i * 0.08}>
-              <div className="flex-shrink-0 w-72 h-72 bg-[var(--surface)] p-8 flex flex-col gap-4 border border-[var(--border)] rounded-lg">
-                <div className="text-yellow-400 text-lg tracking-widest">
-                  ★★★★★
-                </div>
-                <p className="italic text-gray-300 leading-relaxed text-sm overflow-hidden">
-                  "{t.quote}"
-                </p>
-                <div className="mt-auto pt-4">
-                  <div className="font-heading text-xl uppercase">
-                    {t.name}
-                  </div>
-                  <div className="w-10 h-[2px] bg-[var(--red)] mt-2" />
-                </div>
-              </div>
-            </FadeUp>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Page() {
   return (
     <main className="bg-black overflow-hidden pb-[88px] md:pb-0">
       <Navbar />
       <Hero />
-      <Testimonials />
+      <GoogleReviews />
       <Approach />
       <Services />
       <Blueprint />

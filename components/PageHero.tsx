@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PHONE_HREF } from "@/lib/constants";
 
 export default function PageHero({
   eyebrow,
@@ -9,7 +8,7 @@ export default function PageHero({
   subtitle,
   image,
   ctaText = "Book Free Call",
-  ctaHref = PHONE_HREF,
+  ctaHref = "/contact",
   secondaryCtaText,
   secondaryCtaHref,
 }: {

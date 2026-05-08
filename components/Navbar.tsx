@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { LOGO, PHONE, PHONE_HREF, SERVICE_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
@@ -9,6 +10,7 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -16,6 +18,18 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
+  const isServicesActive = SERVICE_LINKS.some((s) => isActive(s.href));
+
+  const linkClass = (active: boolean) =>
+    `transition-colors ${
+      active ? "text-[var(--red)]" : "hover:text-[var(--red)]"
+    }`;
 
   return (
     <header
@@ -25,17 +39,17 @@ export default function Navbar() {
           : "bg-transparent backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between">
-        <a href="/" className="flex items-center">
+      <div className="relative mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between gap-4">
+        <a href="/" className="flex items-center relative z-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={LOGO} alt="BulletproofK9s" style={{ height: 52 }} />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-9 text-sm">
-          <a href="/" className="hover:text-[var(--red)] transition-colors">
+        <nav className="hidden md:flex items-center justify-center gap-9 text-sm absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <a href="/" className={linkClass(isActive("/"))}>
             Home
           </a>
-          <a href="/about" className="hover:text-[var(--red)] transition-colors">
+          <a href="/about" className={linkClass(isActive("/about"))}>
             About
           </a>
           <div
@@ -43,7 +57,9 @@ export default function Navbar() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="hover:text-[var(--red)] transition-colors flex items-center gap-1">
+            <button
+              className={`${linkClass(isServicesActive)} flex items-center gap-1`}
+            >
               Services
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                 <path
@@ -67,7 +83,11 @@ export default function Navbar() {
                       <a
                         key={s.href}
                         href={s.href}
-                        className="block px-5 py-2.5 text-sm text-gray-300 hover:bg-[var(--red)]/10 hover:text-white transition-colors"
+                        className={`block px-5 py-2.5 text-sm transition-colors ${
+                          isActive(s.href)
+                            ? "text-[var(--red)] bg-[var(--red)]/10"
+                            : "text-gray-300 hover:bg-[var(--red)]/10 hover:text-white"
+                        }`}
                       >
                         {s.label}
                       </a>
@@ -77,23 +97,20 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-          <a
-            href="/contact"
-            className="hover:text-[var(--red)] transition-colors"
-          >
+          <a href="/contact" className={linkClass(isActive("/contact"))}>
             Contact
           </a>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-3 lg:gap-5 relative z-10">
           <a
             href={PHONE_HREF}
-            className="text-xs text-gray-400 hover:text-white transition-colors"
+            className="hidden lg:inline text-xs text-gray-400 hover:text-white transition-colors"
           >
             {PHONE}
           </a>
           <a
-            href={PHONE_HREF}
+            href="/contact"
             className="bg-[var(--red)] hover:bg-[var(--red-dim)] text-white text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-full transition-all glow-red"
           >
             Book Free Call
@@ -101,7 +118,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="lg:hidden text-white"
+          className="md:hidden text-white justify-self-end"
           aria-label="menu"
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -130,15 +147,22 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-black/95 border-t border-[var(--border)]"
+            className="md:hidden overflow-hidden bg-black/95 border-t border-[var(--border)]"
           >
             <div className="px-5 py-6 flex flex-col gap-1">
-              <a href="/" className="py-3 text-sm uppercase tracking-widest">
+              <a
+                href="/"
+                className={`py-3 text-sm uppercase tracking-widest ${
+                  isActive("/") ? "text-[var(--red)]" : ""
+                }`}
+              >
                 Home
               </a>
               <a
                 href="/about"
-                className="py-3 text-sm uppercase tracking-widest"
+                className={`py-3 text-sm uppercase tracking-widest ${
+                  isActive("/about") ? "text-[var(--red)]" : ""
+                }`}
               >
                 About
               </a>
@@ -163,7 +187,11 @@ export default function Navbar() {
                         <a
                           key={s.href}
                           href={s.href}
-                          className="py-2 pl-4 text-sm text-gray-300 hover:text-white transition-colors"
+                          className={`py-2 pl-4 text-sm transition-colors ${
+                            isActive(s.href)
+                              ? "text-[var(--red)]"
+                              : "text-gray-300 hover:text-white"
+                          }`}
                         >
                           {s.label}
                         </a>
@@ -174,12 +202,14 @@ export default function Navbar() {
               </div>
               <a
                 href="/contact"
-                className="py-3 text-sm uppercase tracking-widest"
+                className={`py-3 text-sm uppercase tracking-widest ${
+                  isActive("/contact") ? "text-[var(--red)]" : ""
+                }`}
               >
                 Contact
               </a>
               <a
-                href={PHONE_HREF}
+                href="/contact"
                 className="mt-4 btn-red justify-center w-full"
               >
                 Book Free Call

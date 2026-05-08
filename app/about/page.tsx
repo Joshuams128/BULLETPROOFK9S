@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
@@ -10,8 +9,8 @@ import { PHONE_HREF } from "@/lib/constants";
 
 const PILLARS = [
   {
-    title: "Balanced. Always.",
-    body: "We don't pick sides between positive-only and corrections. We use what works — proven, humane, and tailored to your dog.",
+    title: "Balanced & Fair. Always.",
+    body: "We don't believe in extremes. Instead of choosing sides, we focus on clear communication, fair guidance, and proven training methods tailored to your dog — creating reliable results without unnecessary corrections.",
   },
   {
     title: "Real Cases. Real Results.",
@@ -41,12 +40,12 @@ const TIMELINE = [
   {
     year: "Modern Era",
     title: "Industry Evolution",
-    body: "Tools and methods evolved. Our approach evolved with them — staying ruthlessly focused on what produces calm, confident dogs.",
+    body: "At BulletproofK9s, training methods continue to evolve — and so do we. We stay focused on what matters most: creating calm, confident, well-behaved dogs that thrive in the real world.",
   },
   {
     year: "Today",
     title: "BulletproofK9s",
-    body: "1,000+ dogs trained. 25M+ video views. Trusted by families, working professionals, and law enforcement across the GTA.",
+    body: "1,000+ dogs trained. 25M+ video views. Trusted by families, working professionals, and law enforcement worldwide.",
   },
 ];
 
@@ -59,7 +58,7 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="The Proof Is In The Pudding."
         subtitle="We don't just train dogs — we build unshakable partnerships between dog and owner. Three decades of obsession, channeled into the most reliable training program in the GTA."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/f24a5c-b3fc-4084-cf8-1ee30bbf6cd6_IMG_0910_1_-1030x773.jpg"
+        image="/imgs/img1.jpeg"
         ctaText="Book Free Call"
         secondaryCtaText="See Our Programs"
         secondaryCtaHref="/#services"
@@ -72,7 +71,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://bulletproofk9s.com/wp-content/uploads/2024/08/eba6faf-8fa8-6f7-1124-1a88f257010c_BPTraining_072223_-33_copy-1030x687.jpg"
+                src="/imgs/img2.jpeg"
                 alt="Founder with dogs"
                 className="w-full h-full object-cover"
               />
@@ -198,12 +197,11 @@ export default function AboutPage() {
       </section>
 
       <FinalCTA
-        title={"Want To Meet The Team?"}
+        title={"Want To Schedule A Consultation?"}
         subtitle="Free 15-minute consultation. We'll talk about your dog, your goals, and the best path forward — no pressure."
       />
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

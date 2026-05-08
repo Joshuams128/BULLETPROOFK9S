@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
@@ -12,7 +11,7 @@ const LEVELS = [
   {
     tag: "Beginner",
     title: "Foundation",
-    body: "Marker training, name recognition, basic obedience, leash manners, and crate confidence. Ideal for puppies and untrained adults.",
+    body: "Marker training, name recognition, basic obedience, leash manners, and crate training, building confidence. Ideal for puppies and untrained adults.",
     points: ["Sit, down, place, come", "Loose-leash walking", "Crate + house manners", "Marker work"],
   },
   {
@@ -67,7 +66,7 @@ export default function BoardAndTrainPage() {
       <PageHero
         eyebrow="Most Popular Program"
         title="Board & Train. The Complete Reset."
-        subtitle="Your dog moves in. Lives, eats, and trains with us. Comes home transformed — calm, focused, and ready for the real world. The fastest path to a finished dog."
+        subtitle="They live, eat, and train alongside our head trainer every day. They come home calmer, sharper, more focused, and ready for the real world — while you learn how to easily maintain the training for life."
         image="https://bulletproofk9s.com/wp-content/uploads/2024/08/Board-and-Train-Service-1030x687.jpg"
         ctaText="Reserve Your Spot"
         secondaryCtaText="See What's Included"
@@ -252,7 +251,6 @@ export default function BoardAndTrainPage() {
       />
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

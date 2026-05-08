@@ -23,7 +23,7 @@ export default function Footer() {
               },
               {
                 label: "YouTube",
-                href: "https://youtube.com/bulletproofk9s",
+                href: "https://www.youtube.com/@BulletproofPitbulls",
                 d: "M22 8.5a3 3 0 0 0-2.1-2.1C18.1 6 12 6 12 6s-6.1 0-7.9.4A3 3 0 0 0 2 8.5C1.6 10.3 1.6 12 1.6 12s0 1.7.4 3.5A3 3 0 0 0 4.1 17.6C5.9 18 12 18 12 18s6.1 0 7.9-.4a3 3 0 0 0 2.1-2.1c.4-1.8.4-3.5.4-3.5s0-1.7-.4-3.5zM10 15V9l5 3-5 3z",
               },
             ].map((s) => (
@@ -48,7 +48,7 @@ export default function Footer() {
             <h4 className="font-heading text-xl uppercase mb-3">About</h4>
             <p className="text-sm text-gray-400 leading-relaxed">
               BulletproofK9s is Toronto &amp; the GTA's premier dog training
-              facility — turning out calm, confident, bulletproof dogs since
+              facility — turning out calm, Confident, Bulletproof dogs since
               day one.
             </p>
           </div>
@@ -85,18 +85,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <div>
-            © {new Date().getFullYear()} BulletproofK9s. All rights reserved.
-          </div>
-          <div>
-            Site by{" "}
-            <a
-              href="https://acersites.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[var(--red)]"
-            >
-              AcerSites
-            </a>
+            © 2014 BulletproofK9s. All rights reserved.
           </div>
         </div>
       </div>

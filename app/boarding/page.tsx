@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import PageHero from "@/components/PageHero";
 import FinalCTA from "@/components/FinalCTA";
@@ -199,7 +198,6 @@ export default function BoardingPage() {
       />
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

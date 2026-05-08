@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FadeUp from "@/components/FadeUp";
 import { PHONE, PHONE_HREF } from "@/lib/constants";
 
@@ -129,7 +128,7 @@ export default function ContactPage() {
                 Location
               </div>
               <div className="font-heading text-xl uppercase">
-                Schomberg, ON
+                94 Magnum Dr, Schomberg, ON
               </div>
             </div>
           </div>
@@ -252,7 +251,7 @@ export default function ContactPage() {
               <div className="border border-[var(--border)] overflow-hidden aspect-[4/3]">
                 <iframe
                   title="BulletproofK9s location"
-                  src="https://maps.google.com/maps?q=Schomberg,ON&z=10&output=embed"
+                  src="https://maps.google.com/maps?q=94+Magnum+Dr,+Schomberg,+ON&z=15&output=embed"
                   className="w-full h-full grayscale contrast-125"
                   loading="lazy"
                 />
@@ -262,16 +261,8 @@ export default function ContactPage() {
                 <div className="label-red">Hours</div>
                 <ul className="mt-3 flex flex-col gap-2 text-sm text-gray-300">
                   <li className="flex justify-between">
-                    <span>Monday – Friday</span>
-                    <span className="text-gray-400">9:00 – 7:00</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Saturday</span>
-                    <span className="text-gray-400">10:00 – 5:00</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="text-gray-400">By Appointment</span>
+                    <span>Every Day</span>
+                    <span className="text-gray-400">10:00 – 8:00</span>
                   </li>
                 </ul>
               </div>
@@ -296,7 +287,6 @@ export default function ContactPage() {
       </section>
 
       <Footer />
-      <StickyMobileCTA />
     </main>
   );
 }

@@ -138,6 +138,7 @@ function Hero() {
                 "Personal Protection",
                 "Dog Sport Problem Solving",
                 "Toy Breeds to High-Drive Working Dogs",
+                "Professional Dog Training That Won't Break the Bank",
               ].map((service) => (
                 <div key={service} className="flex items-start gap-4 text-lg lg:text-xl text-gray-300">
                   <span style={{ color: "#CEF50C" }}>✅</span>
@@ -234,6 +235,7 @@ function Hero() {
                 "Personal Protection",
                 "Dog Sport Problem Solving",
                 "Toy Breeds to High-Drive Working Dogs",
+                "Professional Dog Training That Won't Break the Bank",
               ].map((service) => (
                 <div key={service} className="flex items-start gap-3 text-sm text-gray-300">
                   <span style={{ color: "#CEF50C" }}>✅</span>
@@ -367,7 +369,7 @@ function Services() {
                 </button>
                 {expanded === s.title && (
                   <div className="border-t border-[var(--border)] px-6 py-6">
-                    <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
+                    <div className="relative aspect-video overflow-hidden rounded-lg mb-4 w-full md:w-3/4 lg:w-2/3 md:mx-auto">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={s.img}

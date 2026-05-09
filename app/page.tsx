@@ -400,9 +400,17 @@ function Services() {
 function Approach() {
   return (
     <section className="bg-black pt-12 md:pt-16 pb-24 md:pb-28">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-        <div className="lg:sticky lg:top-32 lg:self-start">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        {/* Image + heading side by side on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
           <FadeUp>
+            <img
+              src="/imgs/laurapic.jpeg"
+              alt="Laura"
+              className="w-3/4 lg:w-full rounded-xl shadow-lg"
+            />
+          </FadeUp>
+          <FadeUp delay={0.1}>
             <div className="label-red">Why Choose Us</div>
             <h2 className="font-heading mt-2 text-5xl md:text-6xl uppercase leading-[0.95]">
               Why
@@ -422,23 +430,18 @@ function Approach() {
           </FadeUp>
         </div>
 
-        <div className="flex flex-col">
+        {/* Numbered items below */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-[var(--border)]">
           {APPROACH.map((a, i) => (
             <FadeUp key={a.n} delay={i * 0.06}>
-              <div
-                className={`grid grid-cols-[80px_1fr] gap-6 py-8 ${
-                  i !== 0 ? "border-t border-[var(--border)]" : ""
-                }`}
-              >
-                <div className="font-heading text-6xl text-white/10 leading-none">
+              <div className="py-8 px-6 border-b md:border-b-0 md:border-r border-[var(--border)] last:border-0">
+                <div className="font-heading text-5xl text-white/10 leading-none mb-4">
                   {a.n}
                 </div>
-                <div>
-                  <h3 className="font-heading text-2xl md:text-3xl uppercase">
-                    {a.title}
-                  </h3>
-                  <p className="mt-2 text-gray-400">{a.body}</p>
-                </div>
+                <h3 className="font-heading text-xl md:text-2xl uppercase">
+                  {a.title}
+                </h3>
+                <p className="mt-2 text-gray-400 text-sm">{a.body}</p>
               </div>
             </FadeUp>
           ))}

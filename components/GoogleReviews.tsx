@@ -35,7 +35,9 @@ function Stars({ rating, size = "text-sm" }: { rating: number; size?: string }) 
 export default function GoogleReviews() {
   const [data, setData] = useState<ReviewsData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(0);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -50,10 +52,26 @@ export default function GoogleReviews() {
   const reviews = data?.reviews ?? [];
 
   function scrollBy(direction: "left" | "right") {
+    if (isScrollingRef.current) return;
     const el = scrollerRef.current;
     if (!el) return;
-    const amount = el.clientWidth * 0.8;
-    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+
+    const next = direction === "right"
+      ? Math.min(index + 1, reviews.length - 1)
+      : Math.max(index - 1, 0);
+
+    if (next === index) return;
+
+    const card = el.children[next] as HTMLElement;
+    if (!card) return;
+
+    isScrollingRef.current = true;
+    setIndex(next);
+    el.scrollTo({ left: card.offsetLeft, behavior: "smooth" });
+
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 450);
   }
 
   return (
@@ -163,15 +181,17 @@ export default function GoogleReviews() {
             <div className="md:hidden flex justify-center gap-3 mt-4">
               <button
                 onClick={() => scrollBy("left")}
+                disabled={index === 0}
                 aria-label="Previous reviews"
-                className="w-10 h-10 flex items-center justify-center bg-[#0c0c0c] border border-[#c0000a]/40 text-white hover:border-[#c0000a] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#0c0c0c] border border-[#c0000a]/40 text-white hover:border-[#c0000a] transition-colors disabled:opacity-30 disabled:pointer-events-none"
               >
                 ‹
               </button>
               <button
                 onClick={() => scrollBy("right")}
+                disabled={index >= reviews.length - 1}
                 aria-label="Next reviews"
-                className="w-10 h-10 flex items-center justify-center bg-[#0c0c0c] border border-[#c0000a]/40 text-white hover:border-[#c0000a] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#0c0c0c] border border-[#c0000a]/40 text-white hover:border-[#c0000a] transition-colors disabled:opacity-30 disabled:pointer-events-none"
               >
                 ›
               </button>

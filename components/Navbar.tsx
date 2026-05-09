@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { LOGO, PHONE, PHONE_HREF, SERVICE_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
@@ -41,8 +42,14 @@ export default function Navbar() {
     >
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 h-20 flex items-center justify-between gap-4">
         <a href="/" className="flex items-center relative z-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={LOGO} alt="BulletproofK9s" style={{ height: 52 }} />
+          <Image
+            src={LOGO}
+            alt="BulletproofK9s"
+            width={70}
+            height={52}
+            priority
+            className="h-[52px] w-auto"
+          />
         </a>
 
         <nav className="hidden md:flex items-center justify-center gap-9 text-sm absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

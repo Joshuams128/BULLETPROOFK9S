@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import FadeUp from "@/components/FadeUp";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
 import GoogleReviews from "@/components/GoogleReviews";
+import LazyVideo from "@/components/LazyVideo";
 import { PHONE_HREF } from "@/lib/constants";
 
 const SERVICES = [
@@ -101,13 +102,8 @@ function Hero() {
       {/* Desktop Hero — mirrors mobile layout, scaled up */}
       <section className="hidden md:block bg-black pt-28">
         <div className="relative aspect-video bg-black overflow-hidden mx-auto w-10/12 max-w-5xl rounded-2xl">
-          <video
+          <LazyVideo
             src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -181,13 +177,8 @@ function Hero() {
             </div>
 
             <div className="mt-14 relative aspect-video bg-black overflow-hidden rounded-2xl w-full">
-              <video
+              <LazyVideo
                 src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/20240820-111322-1puppy-kids.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -203,13 +194,8 @@ function Hero() {
           </h2>
         </div>
         <div className="relative aspect-video bg-black overflow-hidden mx-auto w-11/12 rounded-lg">
-          <video
+          <LazyVideo
             src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/Sequence-01.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
@@ -278,13 +264,8 @@ function Hero() {
             </div>
 
             <div className="mt-8 relative aspect-video bg-black overflow-hidden rounded-lg w-full">
-              <video
+              <LazyVideo
                 src="https://pub-79639a2784374f67b9c9d3482ee26dc9.r2.dev/20240820-111322-1puppy-kids.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -370,11 +351,12 @@ function Services() {
                 {expanded === s.title && (
                   <div className="border-t border-[var(--border)] px-6 py-6">
                     <div className="relative aspect-video overflow-hidden rounded-lg mb-4 w-full md:w-3/4 lg:w-2/3 md:mx-auto">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={s.img}
                         alt={s.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 75vw, 67vw"
+                        className="object-cover"
                       />
                     </div>
                     <p className="text-gray-300 mb-4">
@@ -404,10 +386,13 @@ function Approach() {
         {/* Image + heading side by side on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
           <FadeUp className="flex justify-center lg:justify-end">
-            <img
+            <Image
               src="/imgs/laurapic.jpeg"
               alt="Laura"
-              className="w-2/3 lg:w-3/4 rounded-xl shadow-lg"
+              width={800}
+              height={1000}
+              sizes="(max-width: 1024px) 66vw, 36vw"
+              className="w-2/3 lg:w-3/4 h-auto rounded-xl shadow-lg"
             />
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -468,10 +453,12 @@ function Blueprint() {
             <div className="label-red mb-8">Can't Make It In Person?</div>
           </FadeUp>
           <div className="w-5/6 md:w-4/5 rounded-2xl overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/imgs/online2.jpeg"
               alt="Train Online With The Blueprint"
+              width={1200}
+              height={800}
+              sizes="(max-width: 1024px) 83vw, 40vw"
               className="w-full h-auto object-contain"
             />
           </div>

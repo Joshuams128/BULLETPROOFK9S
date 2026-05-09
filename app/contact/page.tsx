@@ -19,14 +19,38 @@ const SUBJECTS = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send. Please try again.");
+      }
       setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
       setSubmitting(false);
-    }, 600);
+    }
   }
 
   return (
@@ -89,7 +113,7 @@ export default function ContactPage() {
           </a>
 
           <a
-            href="mailto:info@bulletproofk9s.com"
+            href="mailto:bulletproofpitbulls1@gmail.com"
             className="group flex items-center gap-4 p-5 bg-black border border-[var(--border)] hover:border-[var(--red)] transition-colors"
           >
             <div className="w-12 h-12 flex items-center justify-center bg-[var(--red)]/10 text-[var(--red)]">
@@ -107,7 +131,7 @@ export default function ContactPage() {
                 Email
               </div>
               <div className="font-heading text-xl uppercase group-hover:text-[var(--red)] transition-colors break-all">
-                info@bulletproofk9s.com
+                bulletproofpitbulls1@gmail.com
               </div>
             </div>
           </a>
@@ -234,6 +258,12 @@ export default function ContactPage() {
                     className="bg-[var(--surface)] border border-[var(--border)] focus:border-[var(--red)] focus:outline-none text-white px-4 py-3 transition-colors resize-none"
                   />
                 </label>
+
+                {error && (
+                  <div className="border border-[var(--red)] bg-[var(--red)]/10 text-red-300 px-4 py-3 text-sm">
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"

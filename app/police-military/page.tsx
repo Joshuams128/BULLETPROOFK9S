@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FadeUp from "@/components/FadeUp";
@@ -46,10 +47,12 @@ export default function PoliceMilitaryPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 lg:items-stretch">
           <FadeUp delay={0.1} className="order-first lg:order-last lg:h-full">
             <div className="relative w-full h-full mx-auto overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/imgs/op.jpeg"
                 alt="Police K9"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 className="w-full h-auto lg:h-full lg:w-full object-contain"
               />
             </div>

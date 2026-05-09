@@ -104,6 +104,10 @@ export default function GoogleReviews() {
               <img
                 src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
                 alt="Google"
+                loading="lazy"
+                decoding="async"
+                width={48}
+                height={16}
                 className="h-4 object-contain"
               />
             </div>
@@ -157,6 +161,10 @@ export default function GoogleReviews() {
                       src={r.profile_photo_url}
                       alt={r.author_name}
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
+                      width={36}
+                      height={36}
                       className="w-9 h-9 rounded-full object-cover"
                     />
                     <div className="flex-1 min-w-0">
@@ -171,6 +179,10 @@ export default function GoogleReviews() {
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                       alt="Google"
+                      loading="lazy"
+                      decoding="async"
+                      width={16}
+                      height={16}
                       className="w-4 h-4"
                     />
                   </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LOGO, PHONE, PHONE_HREF } from "@/lib/constants";
 
 export default function Footer() {
@@ -6,8 +7,14 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-[var(--border)]">
           <a href="/" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={LOGO} alt="BulletproofK9s" style={{ height: 56 }} />
+            <Image
+              src={LOGO}
+              alt="BulletproofK9s"
+              width={75}
+              height={56}
+              loading="lazy"
+              className="h-[56px] w-auto"
+            />
           </a>
           <div className="flex items-center gap-3">
             {[
@@ -72,10 +79,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@bulletproofk9s.com"
+                  href="mailto:bulletproofpitbulls1@gmail.com"
                   className="hover:text-white"
                 >
-                  info@bulletproofk9s.com
+                  bulletproofpitbulls1@gmail.com
                 </a>
               </li>
               <li>Toronto &amp; GTA, Ontario</li>

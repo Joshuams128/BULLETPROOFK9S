@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function PageHero({
   eyebrow,
@@ -23,11 +24,13 @@ export default function PageHero({
 }) {
   return (
     <section className="relative min-h-[80vh] w-full overflow-hidden grain bg-black flex items-center pt-32 pb-20">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={image}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-black/60" />
       <div

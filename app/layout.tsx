@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Toronto & the GTA's premier dog training facility — turning out calm, confident, bulletproof dogs. Private lessons, board & train, personal protection, and more.",
     images: [
       {
-        url: "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png",
+        url: "/imgs/logo-300x225.png",
         width: 1200,
         height: 630,
         alt: "BulletproofK9s — Premium Dog Training Toronto & GTA",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     description:
       "Toronto & the GTA's premier dog training facility. Calm, confident, bulletproof dogs since day one.",
     images: [
-      "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png",
+      "/imgs/logo-300x225.png",
     ],
   },
   robots: {
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png",
+    icon: "/imgs/logo-300x225.png",
   },
 };
 

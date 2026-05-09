@@ -1,7 +1,6 @@
 export const PHONE = "(514) 347-4362";
 export const PHONE_HREF = "tel:+15143474362";
-export const LOGO =
-  "https://bulletproofk9s.com/wp-content/uploads/2025/03/logo-300x225.png";
+export const LOGO = "/imgs/logo-300x225.png";
 
 export const SERVICE_LINKS = [
   { label: "Private Lessons", href: "/private-dog-training-lessons" },

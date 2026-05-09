@@ -56,7 +56,7 @@ export default function BoardingPage() {
         eyebrow="Boarding"
         title="Going Away? They're In Good Hands."
         subtitle="A safe, structured place to leave your dog when life gets in the way. Multiple walks, supervised play, and the kind of care most kennels don't offer."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/10/iStock-1306167086-2000x1333-1-1030x686.jpg"
+        image="/imgs/boarding.jpg"
         ctaText="Reserve Boarding"
         secondaryCtaText="See What's Included"
         secondaryCtaHref="#included"

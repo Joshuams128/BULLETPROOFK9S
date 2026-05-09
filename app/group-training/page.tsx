@@ -36,7 +36,7 @@ export default function GroupTrainingPage() {
         eyebrow="Group Lessons"
         title="Train Around Real Distractions."
         subtitle="Group sessions are where good dogs become bulletproof. Other dogs, other handlers, real environments — the only way to build reliability that holds in the real world."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/6ee4784-4ed7-c7bf-af14-f85a10f7c23_BPK9_Training_2023_-_Aug_26th_and_31st_-12_copy-1030x687.jpg"
+        image="/imgs/group-training.jpg"
         ctaText="Book Free Call"
         secondaryCtaText="See Pricing"
         secondaryCtaHref="#pricing"

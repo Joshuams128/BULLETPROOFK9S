@@ -42,7 +42,7 @@ export default function ProtectionPage() {
         eyebrow="Elite Personal Protection"
         title="Calm. Until It Matters."
         subtitle="Personal protection dogs that are family-stable, socially confident, and uncompromisingly reliable when called upon. Not guard dogs. Working partners."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/eba6faf-8fa8-6f7-1124-1a88f257010c_BPTraining_072223_-33_copy-1030x687.jpg"
+        image="/imgs/personal-protection.jpg"
         ctaText="Inquire Now"
         secondaryCtaText="See The Method"
         secondaryCtaHref="#method"

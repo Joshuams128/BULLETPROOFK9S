@@ -36,7 +36,7 @@ export default function PoliceMilitaryPage() {
         eyebrow="Law Enforcement & Military"
         title="Operational K9s. Built To Standard."
         subtitle="K9s trained for the work that matters — detection, apprehension, search & rescue, and specialized operations. Built to perform under pressure, every time."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/f24a5c-b3fc-4084-cf8-1ee30bbf6cd6_IMG_0910_1_-1030x773.jpg"
+        image="/imgs/police-military.jpg"
         ctaText="Agency Inquiry"
         secondaryCtaText="See Capabilities"
         secondaryCtaHref="#capabilities"

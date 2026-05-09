@@ -57,7 +57,7 @@ export default function PrivateLessonsPage() {
         eyebrow="Private 1:1 Training"
         title="Built For Your Dog. Only Your Dog."
         subtitle="One-on-one instruction with full attention on your goals. No group distractions, no copy-paste curriculum — just real, lasting change."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/Private-Dog-Training-Lesson-1.jpg"
+        image="/imgs/private-lessons.jpg"
         ctaText="Book Free Consultation"
         secondaryCtaText="See Pricing"
         secondaryCtaHref="#pricing"

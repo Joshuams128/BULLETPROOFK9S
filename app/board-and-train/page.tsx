@@ -68,7 +68,7 @@ export default function BoardAndTrainPage() {
         eyebrow="Most Popular Program"
         title="Board & Train. The Complete Reset."
         subtitle="They live, eat, and train alongside our head trainer every day. They come home calmer, sharper, more focused, and ready for the real world — while you learn how to easily maintain the training for life."
-        image="https://bulletproofk9s.com/wp-content/uploads/2024/08/Board-and-Train-Service-1030x687.jpg"
+        image="/imgs/board-and-train.jpg"
         ctaText="Reserve Your Spot"
         secondaryCtaText="See What's Included"
         secondaryCtaHref="#included"
@@ -80,7 +80,7 @@ export default function BoardAndTrainPage() {
           <FadeUp>
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
-                src="https://bulletproofk9s.com/wp-content/uploads/2024/08/Board-and-Train-Service-1030x687.jpg"
+                src="/imgs/board-and-train.jpg"
                 alt="Board and train"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

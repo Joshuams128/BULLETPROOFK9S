@@ -15,42 +15,42 @@ const SERVICES = [
     title: "Private Lessons",
     desc: "One-on-one instruction tailored to your dog's unique needs and behaviour goals.",
     href: "/private-dog-training-lessons",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/08/Private-Dog-Training-Lesson-1.jpg",
+    img: "/imgs/private-lessons.jpg",
     tag: "1:1",
   },
   {
     title: "Board & Train",
     desc: "Your dog stays with us for intensive, immersive training — comes back transformed.",
     href: "/board-and-train",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/08/Board-and-Train-Service-1030x687.jpg",
+    img: "/imgs/board-and-train.jpg",
     tag: "Most Popular",
   },
   {
     title: "Group Sessions",
     desc: "Structured group classes for advanced skills and real-world socialization.",
     href: "/group-training",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/08/6ee4784-4ed7-c7bf-af14-f85a10f7c23_BPK9_Training_2023_-_Aug_26th_and_31st_-12_copy-1030x687.jpg",
+    img: "/imgs/group-training.jpg",
     tag: "Group",
   },
   {
     title: "Law Enforcement & Military",
     desc: "Specialized K9 training for working dogs in demanding operational environments.",
     href: "/police-military",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/08/f24a5c-b3fc-4084-cf8-1ee30bbf6cd6_IMG_0910_1_-1030x773.jpg",
+    img: "/imgs/police-military.jpg",
     tag: "K9",
   },
   {
     title: "Personal Protection",
     desc: "Trained to recognize threats and protect your family — calm until it matters.",
     href: "/personalprotectionk9s",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/08/eba6faf-8fa8-6f7-1124-1a88f257010c_BPTraining_072223_-33_copy-1030x687.jpg",
+    img: "/imgs/personal-protection.jpg",
     tag: "Elite",
   },
   {
     title: "Boarding",
     desc: "Going away? Your dog is in expert hands — safe, social, and well cared for.",
     href: "/boarding",
-    img: "https://bulletproofk9s.com/wp-content/uploads/2024/10/iStock-1306167086-2000x1333-1-1030x686.jpg",
+    img: "/imgs/boarding.jpg",
     tag: "Care",
   },
 ];
@@ -85,17 +85,7 @@ const BLUEPRINT_FEATURES = [
   "Train at your pace, on any device, anywhere",
 ];
 
-const BLUEPRINT_IMAGES = [
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.11.19 PM.png",
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-1.10.42 PM-3.png",
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.10.21 PM.png",
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.56.33 PM.png",
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.54.46 PM.png",
-  "https://bulletproofk9s.com/wp-content/uploads/2024/10/Screenshot-2024-05-24-at-12.41.31 PM.png",
-];
-
 function Hero() {
-  const heroVideo = "/imgs/bgvideo.mp4";
 
   return (
     <>

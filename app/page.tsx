@@ -403,11 +403,11 @@ function Approach() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         {/* Image + heading side by side on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
-          <FadeUp>
+          <FadeUp className="flex justify-center lg:justify-end">
             <img
               src="/imgs/laurapic.jpeg"
               alt="Laura"
-              className="w-1/2 mx-auto lg:mx-0 lg:w-3/4 rounded-xl shadow-lg block"
+              className="w-2/3 lg:w-3/4 rounded-xl shadow-lg"
             />
           </FadeUp>
           <FadeUp delay={0.1}>

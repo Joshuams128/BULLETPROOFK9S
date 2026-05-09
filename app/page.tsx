@@ -407,7 +407,7 @@ function Approach() {
             <img
               src="/imgs/laurapic.jpeg"
               alt="Laura"
-              className="w-3/4 lg:w-3/4 rounded-xl shadow-lg"
+              className="w-1/2 mx-auto lg:mx-0 lg:w-3/4 rounded-xl shadow-lg block"
             />
           </FadeUp>
           <FadeUp delay={0.1}>

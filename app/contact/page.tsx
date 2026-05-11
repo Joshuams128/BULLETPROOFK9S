@@ -113,7 +113,7 @@ export default function ContactPage() {
           </a>
 
           <a
-            href="mailto:bulletproofpitbulls1@gmail.com"
+            href="mailto:info@bulletproofk9s.com"
             className="group flex items-center gap-4 p-5 bg-black border border-[var(--border)] hover:border-[var(--red)] transition-colors"
           >
             <div className="w-12 h-12 flex items-center justify-center bg-[var(--red)]/10 text-[var(--red)]">
@@ -131,7 +131,7 @@ export default function ContactPage() {
                 Email
               </div>
               <div className="font-heading text-xl uppercase group-hover:text-[var(--red)] transition-colors break-all">
-                bulletproofpitbulls1@gmail.com
+                info@bulletproofk9s.com
               </div>
             </div>
           </a>

@@ -79,10 +79,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:bulletproofpitbulls1@gmail.com"
+                  href="mailto:info@bulletproofk9s.com"
                   className="hover:text-white"
                 >
-                  bulletproofpitbulls1@gmail.com
+                  info@bulletproofk9s.com
                 </a>
               </li>
               <li>Toronto &amp; GTA, Ontario</li>
@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <div>
-            © 2014 BulletproofK9s. All rights reserved.
+            © 2026 BulletproofK9s. All rights reserved.
           </div>
         </div>
       </div>
